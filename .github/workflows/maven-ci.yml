@@ -1,0 +1,22 @@
+name: Java CI with Maven
+
+on: [push] # Déclenche le workflow à chaque push sur n'importe quelle branche
+
+jobs:
+  build_and_test: # Nom du job
+    runs-on: ubuntu-latest # Utilise une machine virtuelle Ubuntu fournie par GitHub
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4 # Action pour récupérer ton code du dépôt
+
+      - name: Set up JDK 17 # Ou la version que tu as configurée dans ton pom.xml
+        uses: actions/setup-java@v4 # Action pour configurer Java
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'maven' # Met en cache les dépendances Maven pour accélérer les builds suivants
+
+      - name: Build and test with Maven
+        working-directory: ./java/com/maventdd/app # Attention a mettre le bon dossier
+        run: mvn -B package # -B pour batch mode. 'package' compile, teste, et package.
