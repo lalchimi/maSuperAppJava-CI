@@ -18,5 +18,5 @@ jobs:
           cache: 'maven' # Met en cache les dépendances Maven pour accélérer les builds suivants
 
       - name: Build and test with Maven
-        working-directory: ./src/main/java/com/maventdd/app # Attention a mettre le bon dossier
+        working-directory: ./java/my-app # Attention a mettre le bon dossier
         run: mvn -B package # -B pour batch mode. 'package' compile, teste, et package.
