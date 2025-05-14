@@ -3,9 +3,9 @@ name: publish-docker-image
 on:
   push:
     branches: ['main']
-    paths:
-      - 'src/main/java/maventdd/app/**.java'
-      - 'src/test/java/maventdd/app/**.java'
+    paths: 
+            - '**.java'
+
 
 
 jobs:
