@@ -38,5 +38,5 @@ jobs:
         with:
             context: .
             push: true
-            tags: ghcr.io/lalchimi/${{ github.event.repository.name }}:latest
+            tags: ghcr.io/lalchimi/masuperappjava-ci:latest
             labels: ${{ steps.meta.outputs.labels }}
