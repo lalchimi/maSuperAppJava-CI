@@ -28,9 +28,9 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-            images: ghcr.io/masuperappjava
+            images: ghcr.io/lalchimi/masuperappjava-CI
             tags: |
-                    type=sha,
+                    type=sha,prefix={{branch}}-
                     type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'master') }}
 
       - name: Build and push
@@ -38,5 +38,5 @@ jobs:
         with:
             context: .
             push: true
-            tags: ghcr.io/lalchimi/maSuperAppJava-CI:${{ steps.meta.outputs.tags }}
+            tags: ${{ steps.meta.outputs.tags }}
             labels: ${{ steps.meta.outputs.labels }}
