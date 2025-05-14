@@ -28,7 +28,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-            images: ghcr.io/lalchimi/masuperappjava-CI
+            images: ghcr.io/masuperappjava
             tags: |
                     type=sha,prefix={{branch}}-
                     type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'master') }}

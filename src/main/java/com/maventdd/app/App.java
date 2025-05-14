@@ -4,7 +4,7 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println("Bienvenue dans la calculatrice !");
-        //comment
+        //bdo
         // Vérifier que deux arguments ont été passés
         if (args.length != 2) {
             System.out.println("Erreur : deux arguments sont requis.");
