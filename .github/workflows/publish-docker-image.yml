@@ -22,6 +22,9 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: maven build
+        uses: 
+
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v5
@@ -38,4 +41,3 @@ jobs:
             push: true
             tags: ghcr.io/lalchimi/masuperappjava-ci:latest
             labels: ${{ steps.meta.outputs.labels }}
-            no-cache: true
