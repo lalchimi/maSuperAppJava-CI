@@ -1,14 +1,10 @@
 # syntax=docker/dockerfile:1
 
 # Utilisation d'une image officielle Java JRE (OpenJDK ou Temurin)
-FROM eclipse-temurin:21-jre
+FROM maven
 WORKDIR /build
-COPY --chmod=0755 mvnw mvnw
-COPY .mvn/ .mvn/
-COPY ./src src/
-RUN --mount=type=bind,source=pom.xml,target=pom.xml \
-    --mount=type=cache,target=/root/.m2 \
-    ./mvnw build
+COPY ./* .
+RUN  mvn package
 
 # Définir le répertoire de travail dans l'image Docker
 WORKDIR /app
